@@ -1,5 +1,5 @@
 var wantToHelp = window.confirm('I\'m so bored doing this social distancing stuff during the coronavirus outbreak. Do you want to help me figure out what I should do right now?')
-if (wantToHelp === false) {
+if (!wantToHelp) {
   window.alert('Oh... okay :/')
 } else {
   var whatToDo = window.prompt('Great! So what do you think I should do right now?')
@@ -11,7 +11,7 @@ if (wantToHelp === false) {
     window.alert('Ugh, I was afraid you would say that...')
   } else if (whatToDo === 'video games') {
     var whichGame = window.prompt('Ooo that\'s a really good idea! Which video game should I play? I have Life is Strange, Fortnite, and Horizon Zero Dawn.')
-    if (whichGame === null || undefined) {
+    if (!whichGame) {
       whichGame = 'cancel'
     }
     whichGame = whichGame.toLowerCase().trim()
@@ -28,7 +28,7 @@ if (wantToHelp === false) {
     }
   } else if (whatToDo === 'watch tv') {
     var whichService = window.prompt('Oh, I like that idea! Hulu or Netflix?')
-    if (whichService === null || undefined) {
+    if (!whichService) {
       whichService = 'cancel'
     }
     whichService = whichService.toLowerCase().trim()
@@ -53,21 +53,18 @@ if (wantToHelp === false) {
       window.alert('You\'re right, I\'m sure this whole thing isn\'t THAT big of a deal! I can be around people!! (....right?)')
     } else if (randomNumber > 0.1) {
       var friendsOrNot = window.prompt('I really want to... maybe if I just hung out with a few people that I have been socially isolating with? What do you think, yes or no?')
-      if (friendsOrNot === null || undefined) {
+      if (!friendsOrNot) {
         friendsOrNot = 'cancel'
       }
       friendsOrNot = friendsOrNot.toLowerCase().trim()
       if (friendsOrNot === 'yes') {
         var numberOfPeople = window.prompt('Okay, I will do it! One last question though, how many people do you think is safe to be around?')
-        if (isNaN(numberOfPeople)) {
-          numberOfPeople = 0
+        if ((isNaN(numberOfPeople)) || (parseInt(numberOfPeople) === 0)) {
           window.alert('No one? I thought you said I should hang out with friends!')
         } else if (parseInt(numberOfPeople) > 10) {
           window.alert('I don\'t think it\'s safe to be around that many people right now!')
-        } else if (parseInt(numberOfPeople) > 0 && parseInt(numberOfPeople) <= 10) {
+        } else if (parseInt(numberOfPeople) > 0) {
           window.alert('Sounds good to me!')
-        } else if (parseInt(numberOfPeople) === 0) {
-          window.alert('No one? I thought you said I should hang out with friends!')
         } else {
           window.alert('Now I\'ll never know how many people is okay to be around! :(')
         }
